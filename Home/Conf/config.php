@@ -24,6 +24,6 @@ return array(
             '__BJS__'    => __ROOT__.'/Public/bootstrap/js/',     // 增加新的Bootstrap的JS路径替换规则
             '__BIMG__'   => __ROOT__.'/Public/bootstrap/img/',    // 增加新的Bootstrap的IMG路径替换规则
         ),
-    );
+    )
 );
 ?>
