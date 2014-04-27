@@ -1,0 +1,50 @@
+<h2 class="contentTitle">招考信息查看</h2>
+<div class="pageContent">
+    <form>
+        <div class="pageFormContent" layoutH="97">
+        <fieldset>
+            <legend>基本信息</legend>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">标题：</dt>
+                <dd><input readonly="true" value="{$info.title}" size="60" type="text" /></dd>
+            </dl>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">招考对象：</dt>
+                <dd><input readonly="true" value="{$info.who}" size="30" type="text" /></dd>
+            </dl>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">招考职位：</dt>
+                <dd><input readonly="true" value="{$info.job}" size="30" type="text" /></dd>
+            </dl>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">招考区域：</dt>
+                <dd><input readonly="true" value="{$info.area}" size="30" type="text" /></dd>
+            </dl>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">招考开始时间：</dt>
+                <dd><input value="{$info.starttime}" type="text" readonly="true"/></dd>
+            </dl>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">招考结束时间：</dt>
+                <dd><input value="{$info.endtime}" type="text" readonly="true"/></dd>
+            </dl>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">招考简介：</dt>
+                <dd>
+                    <textarea readonly="true" cols="60" rows="2">{$info.summary}</textarea>
+                </dd>
+            </dl>
+        </fieldset>
+        <fieldset>
+            <legend>详细详情</legend>
+            <dl class="nowrap">
+                <dt style="width:20px;">&nbsp;</dt>
+                <dd>
+                    <textarea readonly="true" class="editor" cols="150" rows="30" tools="Cut,Copy,Paste,Pastetext,|,Blocktag,Fontface,FontSize,Bold,Italic,Underline,Strikethrough,FontColor,BackColor,SelectAll,Removeformat,|,Align,List,Outdent,Indent,Link,Unlink,Img,Emot,Table,|,Source,Preview,Fullscreen,About">{$info.content}</textarea>
+                </dd>
+            </dl>
+        </fieldset>
+       <!--结束-->
+        </div>
+    </form>
+</div>

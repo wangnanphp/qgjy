@@ -1,0 +1,70 @@
+<h2 class="contentTitle">教师信息查看</h2>
+<div class="pageContent">
+    <form><?php  //窗体组件采用这个 iframeCallback(this, navTabAjaxDone); ?>
+        <div class="pageFormContent" layoutH="97">
+        <fieldset>
+            <legend>基本信息</legend>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">姓名：</dt>
+                <dd><input readonly="true" value="{$info.name}" size="20" type="text" /></dd>
+            </dl>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">性别：</dt>
+                <dd><eq name="info.sex" value="1">男<else/>女</eq></dd>
+                </dd>
+            </dl>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">年龄：</dt>
+                <dd><input readonly="true" value="{$info.age}" size="10" type="text" />&nbsp;&nbsp;岁</dd>
+            </dl>
+
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">学历：</dt>
+                <dd><input readonly="true" value="{$info.edubg}" size="20" type="text" /></dd>
+            </dl>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">简介：</dt>
+                <dd>
+                    <textarea cols="60" readonly="true" rows="2">{$info.summary}</textarea>
+                </dd>
+            </dl>
+        </fieldset>
+
+         <fieldset>
+            <legend>可选信息</legend>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">教龄：</dt>
+                <dd><input readonly="true" value="{$info.teachage}" size="10" class="number" name="teachage" type="text" />&nbsp;&nbsp;年</dd>
+            </dl>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">资历：</dt>
+                <dd><input readonly="true" value="{$info.teachbg}" size="20" class="" name="teachbg" type="text" /></dd>
+            </dl>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">所带科目：</dt>
+                <dd><input readonly="true" value="{$info.course}" size="20" class="" name="course" type="text" /></dd>
+            </dl>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">所属部门：</dt>
+                <dd><input readonly="true" value="{$info.department}" size="20" class="" name="department" type="text" /></dd>
+            </dl>
+            <notempty name="info.img">
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">封面图片：</dt>
+                <dd><img src="{$info.img}" /></dd>
+            </dl>
+        </fieldset>
+
+        <fieldset>
+            <legend>教师详情</legend>
+            <dl class="nowrap">
+                <dt style="width:20px;">&nbsp;</dt>
+                <dd>
+                    <textarea class="editor required" cols="150" rows="30" name="content" upImgUrl="__URL__/editImage" upImgExt="jpg,jpeg,gif,png" tools="Cut,Copy,Paste,Pastetext,|,Blocktag,Fontface,FontSize,Bold,Italic,Underline,Strikethrough,FontColor,BackColor,SelectAll,Removeformat,|,Align,List,Outdent,Indent,Link,Unlink,Img,Emot,Table,|,Source,Preview,Fullscreen,About">{$info.content}</textarea>
+                </dd>
+            </dl>
+        </fieldset>
+       <!--结束-->
+        </div>
+    </form>
+</div>

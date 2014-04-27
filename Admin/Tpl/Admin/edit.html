@@ -1,0 +1,98 @@
+<h2 class="contentTitle">管理员信息修改</h2>
+<div class="pageContent">
+    <form method="post" action="__URL__/doEdit/navTabId/admin/callbackType/closeCurrent" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
+        <input type="hidden" value="{$info.id}" name="id" />
+        <div class="pageFormContent" layoutH="95">
+            <fieldset>
+                <legend>基本信息</legend>
+                <dl class="nowrap">
+                    <dt style="text-align:right; padding-right:15px;">登录账号：</dt>
+                    <dd><input value="{$info.loginname}" size="35" class="required alphanumeric" minlength="6" name="loginname" type="text" alt="字母、数字、下划线" /></dd>
+                </dl>
+                <dl class="nowrap">
+                    <dt style="text-align:right; padding-right:15px;">登录密码：</dt>
+                    <dd><input size="35" id="aadmpwd" class="alphanumeric" minlength="6" maxlength="20" name="password" type="password"/></dd>
+                </dl>
+                <dl class="nowrap">
+                    <dt style="text-align:right; padding-right:15px;">重复密码：</dt>
+                    <dd><input size="35" class="" equalto="#aadmpwd" name="repassword" type="password" /></dd>
+                </dl>
+                <dl class="nowrap">
+                    <dt style="text-align:right; padding-right:15px;">真实姓名：</dt>
+                    <dd><input value="{$info.realname}" size="35" class="required" name="realname" type="text" alt="" /></dd>
+                </dl>
+                <dl class="nowrap">
+                    <dt style="text-align:right; padding-right:15px;">性别：</dt>
+                    <dd>
+                        <label style="width:50px">
+                            <input <eq name="info.sex" value="1">checked="checked"</eq> type="radio" name="sex" value="1" />男
+                        </label>
+                        <label style="width:50px">
+                            <input <eq name="info.sex" value="0">checked="checked"</eq> type="radio" name="sex" value="0" />女
+                        </label>
+                    </dd>
+                </dl>
+                <dl class="nowrap">
+                    <dt style="text-align:right; padding-right:15px;">职位：</dt>
+                    <dd>
+                        <label style="width:90px">
+                            <input <eq name="info.power" value="3">checked="checked"</eq> type="radio" name="power" value="3" />内容管理员
+                        </label>
+                        <label style="width:90px">
+                            <input <eq name="info.power" value="2">checked="checked"</eq> type="radio" name="power" value="2" />业务管理员
+                        </label>
+                        <label style="width:90px">
+                            <input <eq name="info.power" value="1">checked="checked"</eq> type="radio" name="power" value="1" />超级管理员
+                        </label>
+                    </dd>
+                </dl>
+                <dl class="nowrap">
+                    <dt style="text-align:right; padding-right:15px;">是否锁定：</dt>
+                    <dd>
+                        <label style="width:50px">
+                            <input <eq name="info.status" value="-1">checked="checked"</eq> type="radio" name="status" value="-1" />是
+                        </label>
+                        <label style="width:50px">
+                            <input <eq name="info.status" value="1">checked="checked"</eq> type="radio" name="status" value="1" />否
+                        </label>
+                    </dd>
+                </dl>
+            </fieldset>
+            <fieldset>
+                <legend>详细信息</legend>
+                <dl class="nowrap">
+                    <dt style="text-align:right; padding-right:15px;">身份证号：</dt>
+                    <dd><input value="{$info.cardid}" size="35" name="cardid" type="text" /></dd>
+                </dl>
+                <dl class="nowrap">
+                    <dt style="text-align:right; padding-right:15px;">电话：</dt>
+                    <dd><input value="{$info.phone}" size="35" class="phone" name="phone" type="text" /></dd>
+                </dl>
+                <dl class="nowrap">
+                    <dt style="text-align:right; padding-right:15px;">ＱＱ：</dt>
+                    <dd><input value="{$info.qq}" size="35" class="digits" minlength="5" name="qq" type="text" /></dd>
+                </dl>
+                <dl class="nowrap">
+                    <dt style="text-align:right; padding-right:15px;">E-mail：</dt>
+                    <dd><input value="{$info.email}" size="35" class="email" name="email" type="text" /></dd>
+                </dl>
+                <dl class="nowrap">
+                    <dt style="text-align:right; padding-right:15px;">住址：</dt>
+                    <dd><input value="{$info.address}" size="35" name="address" type="text" /></dd>
+                </dl>
+                <dl class="nowrap">
+                    <dt style="text-align:right; padding-right:15px;">备注：</dt>
+                    <dd><textarea name="remark" cols="60" rows="2">{$info.remark}</textarea></dd>
+                </dl>
+            </fieldset>
+        </div>
+      <div class="formBar">
+            <ul style="text-align:left;float:left;padding-left:20px;">
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">修改</button></div></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                <li>
+                    <div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+                </li>
+            </ul>
+        </div>
+    </form>
+</div>

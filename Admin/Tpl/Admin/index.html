@@ -1,0 +1,102 @@
+<include file="./Admin/Tpl/Public/pagerForm.html" />
+<div class="pageHeader">
+    <form rel="pagerForm" onsubmit="return navTabSearch(this);" method="post">
+    <div class="searchBar">
+        <table class="searchContent">
+            <tr>
+                <td>
+                    <b>搜索</b> &nbsp; 关键字：<input type="text" name="keyword" value="{$Think.request.keyword}" /> 【ID,登录名,真实姓名,身份证号,电话,手机,QQ,E-mail,住址】
+                    <input type="hidden" name="field" value="id,number,value,type,platform,addname,getname, buyer" />
+                </td>
+                <td>是否锁定:</td>
+                <td>
+                    <select class="combox" name="status">
+                        <option value="all">不限制</option>
+                        <option <eq name="Think.request.status" value="-1">selected="selected"</eq> value="1">已锁定</option>
+                        <option <eq name="Think.request.status" value="1">selected="selected"</eq> value="-1">未锁定</option>
+                    </select>
+                </td>
+                <td>
+                    <div class="buttonActive"><div class="buttonContent"><button type="submit">检索</button></div></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</div>
+<div class="pageContent">
+    <div class="panelBar">
+        <ul class="toolBar">
+            <li><a class="add" href="__URL__/addd" target="dialog" width="760" height="400" rel="adminadd" title="添加新管理员信息"><span>添加新管理员</span></a></li>
+            <li><a class="edit" href="__URL__/edit/id/{item_id}/navTabId/admin" width="760" height="500" target="dialog" ><span>修改</span></a></li>
+            <li class="line">line</li>
+            <li><a class="delete" href="__URL__/del/id/{item_id}/navTabId/admin" target="ajaxTodo" title="确定要删除吗?"><span>删除</span></a></li>
+            <li class="line">line</li>
+            <li><a class="icon"  href="javascript:navTabPageBreak()"><span>刷新</span></a></li>
+        </ul>
+    </div>
+    <table class="table" width="100%" layoutH="112">
+        <thead>
+            <tr>
+                <th align="center" width="30">ID</th>
+                <th align="center" width="60">登录账号</th>
+                <th align="center" width="50">职位</th>
+                <th align="center" width="60">身份证号</th>
+                <th align="center" width="40">姓名</th>
+                <th align="center" width="30">性别</th>
+                <th align="center" width="80">最后登录时间</th>
+                <th align="center" width="60">最后登录IP</th>
+                <th align="center" width="30">联系电话</th>
+                <th align="center" width="30">是否锁定</th>
+                <th align="center" width="110">管理操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <foreach name="list" item="item">
+            <tr target="item_id" rel="{$item.id}">
+                <td>{$item.id}</td>
+                <td>{$item.loginname}</td>
+                <td>
+                <switch name="item.power" >
+                <case value="1">超级管理员</case>
+                <case value="2">业务管理员</case>
+                <case value="3">内容管理员</case>
+                </switch>
+                </td>
+                <td>{$item.cardid}</td>
+                <td>{$item.realname}</td>
+                <td><eq name="item.sex" value="1">男<else />女</eq></td>
+                <td>{$item.lasttime|date="Y-m-d H:i:s",###}</td>
+                <td>{$item.lastip}</td>
+                <td>{$item.phone}</td>
+                <eq name="item.status" value="1"><td style="color:blue;">未锁定<else /><td style="color:red;">锁定</eq></td>
+                <td>
+                    <eq name="item.status" value="1">
+                    <a style="color:#06F;" target="ajaxTodo" href="__URL__/lock/id/{$item.id}/navTabId/admin"><span>锁定登录</span></a>
+                    <else />
+                    <a style="color:red;" target="ajaxTodo" href="__URL__/unlock/id/{$item.id}/navTabId/admin"><span>解除登录</span></a>
+                    </eq>
+                    &nbsp;&nbsp;|
+                    <a style="color:#06F;"  target="dialog" width="760" height="500" rel="adminshow" title="详情" href="__URL__/show/id/{$item.id}/navTabId/admin"><span>详情</span></a>&nbsp;&nbsp;|
+                    <a style="color:#06F;"  target="dialog" width="760" height="500" rel="adminedit" title="修改" href="__URL__/edit/id/{$item.id}/navTabId/admin"><span>修改</span></a>&nbsp;&nbsp;|
+                    <a style="color:#06F;" target="ajaxTodo" title="确定要删除吗?" href="__URL__/del/id/{$item.id}/navTabId/admin"><span>删除</span></a>
+                </td>
+            </tr>
+            </foreach>
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>显示</span>
+            <select class="combox" name="numPerPage" onchange="navTabPageBreak({numPerPage:this.value})">
+                <option value="10" {if $numPerPage==10}selected{/if}>10</option>
+                <option value="15" {if $numPerPage==15}selected{/if}>15</option>
+                <option value="20" {if $numPerPage==20}selected{/if}>20</option>
+                <option value="25" {if $numPerPage==25}selected{/if}>25</option>
+                <option value="30" {if $numPerPage==30}selected{/if}>30</option>
+            </select>
+            <span>共{$totalCount}条</span>
+        </div>
+        <div class="pagination" targetType="navTab" totalCount="{$totalCount}" numPerPage="{$numPerPage}" pageNumShown="6" currentPage="{$currentPage}"></div>
+    </div>
+</div>

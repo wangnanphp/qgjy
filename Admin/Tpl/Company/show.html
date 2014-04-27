@@ -1,0 +1,36 @@
+<h2 class="contentTitle">企业文化信息查看</h2>
+<div class="pageContent">
+    <form>
+        <input value="{$info.id}" name="id" type="hidden" />
+        <div class="pageFormContent" layoutH="97">
+        <fieldset>
+            <legend>基本信息</legend>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">项目：</dt>
+                <dd><input readonly="true" value="{$info.title}" size="20" type="text" /></dd>
+            </dl>
+            <notempty name="info.img">
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">封面图片：</dt>
+                <dd><img src="{$info.img}" /></dd>
+            </dl>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">摘要：</dt>
+                <dd>
+                    <textarea readonly="true" cols="60" rows="2">{$info.summary}</textarea>
+                </dd>
+            </dl>
+        </fieldset>
+        <fieldset>
+            <legend>详细内容</legend>
+            <dl class="nowrap">
+                <dt style="width:20px;">&nbsp;</dt>
+                <dd>
+                    <textarea readonly="true" class="editor required" cols="110" rows="30" name="content" upImgUrl="__URL__/editImage" upImgExt="jpg,jpeg,gif,png" tools="Cut,Copy,Paste,Pastetext,|,Blocktag,Fontface,FontSize,Bold,Italic,Underline,Strikethrough,FontColor,BackColor,SelectAll,Removeformat,|,Align,List,Outdent,Indent,Link,Unlink,Img,Emot,Table,|,Source,Preview,Fullscreen,About">{$info.content}</textarea>
+                </dd>
+            </dl>
+        </fieldset>
+        <!--结束-->
+        </div>
+    </form>
+</div>

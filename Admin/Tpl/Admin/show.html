@@ -1,0 +1,78 @@
+<h2 class="contentTitle">管理员信息查看</h2>
+<div class="pageContent">
+    <div class="pageFormContent" layoutH="70">
+        <fieldset>
+            <legend>基本信息</legend>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">管理员ID：</dt>
+                <dd><input readonly="true" value="{$info.id}" size="35" minlength="6" name="loginname" type="text" /></dd>
+            </dl>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">登录账号：</dt>
+                <dd><input readonly="true" value="{$info.loginname}" size="35" class="required alphanumeric" minlength="6" name="loginname" type="text" /></dd>
+            </dl>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">真实姓名：</dt>
+                <dd><input readonly="true" value="{$info.realname}" size="35" class="required" name="realname" type="text" alt="" /></dd>
+            </dl>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">性别：</dt>
+                <dd>
+                    <label style="width:50px">
+                        <input checked="checked" type="radio" name="sex" />
+                        <eq name="info.sex" value="1">男<else />女</eq>
+                    </label>
+                </dd>
+            </dl>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">职位：</dt>
+                <dd>
+                    <label style="width:110px">
+                        <input checked="checked" type="radio" name="power" value="1" />
+                        <switch name="info.power" >
+                        <case value="1">超级管理员</case>
+                        <case value="2">业务管理员</case>
+                        <case value="3">内容管理员</case>
+                        </switch>
+                    </label>
+                </dd>
+            </dl>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">是否锁定：</dt>
+                <dd>
+                    <label style="width:90px">
+                        <input checked="checked" type="radio" name="status" />
+                        <eq name="info.status" value="1">未锁定<else />已锁定</eq>
+                    </label>
+                </dd>
+            </dl>
+        </fieldset>
+        <fieldset>
+            <legend>详细信息</legend>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">身份证号：</dt>
+                <dd><input readonly="true"  value="{$info.cardid}" size="35" name="cardid" type="text" /></dd>
+            </dl>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">电话：</dt>
+                <dd><input readonly="true"  value="{$info.phone}" size="35" class="phone" name="phone" type="text" /></dd>
+            </dl>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">ＱＱ：</dt>
+                <dd><input readonly="true"  value="{$info.qq}" size="35" class="digits" minlength="5" name="qq" type="text" /></dd>
+            </dl>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">E-mail：</dt>
+                <dd><input readonly="true"  value="{$info.email}" size="35" class="email" name="email" type="text" /></dd>
+            </dl>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">住址：</dt>
+                <dd><input readonly="true"  value="{$info.address}" size="35" name="address" type="text" /></dd>
+            </dl>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">备注：</dt>
+                <dd><textarea readonly="true"  name="remark" cols="60" rows="2">{$info.remark}</textarea></dd>
+            </dl>
+        </fieldset>
+    </div>
+</div>

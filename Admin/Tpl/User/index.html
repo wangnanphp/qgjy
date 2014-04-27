@@ -1,0 +1,81 @@
+<include file="./Admin/Tpl/Public/pagerForm.html" />
+<div class="pageHeader">
+    <form rel="pagerForm" onsubmit="return navTabSearch(this);" method="post">
+    <div class="searchBar">
+        <table class="searchContent">
+            <tr>
+                <td>
+                    <b>搜索</b> &nbsp; 关键字：<input type="text" name="keyword" value="{$smarty.request.keyword}" /> [ID, 用户账号, 用户昵称, 真实姓名, 电话, QQ, E-mail]
+                    <input type="hidden" name="field" value="id,loginname,nickname,realname,email,qq,phone" />
+                </td>
+                <td>
+                    <div class="buttonActive"><div class="buttonContent"><button type="submit">检索</button></div></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</div>
+<div class="pageContent">
+    <div class="panelBar">
+        <ul class="toolBar">
+            <li><a class="add" href="__URL__/show/id/{ldelim}item_id{rdelim}/navTabId/user" rel="showuser" width="750" height="450" target="dialog"><span>查看详情</span></a></li>
+            <li><a class="edit" href="__URL__/rank/id/{ldelim}item_id{rdelim}/navTabId/user" rel="rankuser" width="750" height="450" target="dialog"><span>设置等级</span></a></li>
+            <li class="line">line</li>
+            <li><a class="delete" href="__URL__/del/id/{ldelim}item_id{rdelim}/navTabId/user" target="ajaxTodo" title="确定要删除吗?"><span>删除</span></a></li>
+            <li class="line">line</li>
+            <li><a class="icon"  href="javascript:navTabPageBreak()"><span>刷新</span></a></li>
+        </ul>
+    </div>
+    <table class="table" width="100%" layoutH="112">
+        <thead>
+            <tr>
+                <th align="center" width="15">ID</th>
+                <th align="center" width="60">登录账号</th>
+                <th align="center" width="50">会员昵称</th>
+                <th align="center" width="40">真实姓名</th>
+                <th align="center" width="40">会员等级</th>
+                <th align="center" width="40">电话号码</th>
+                <th align="center" width="70">最后登录时间</th>
+                <th align="center" width="70">注册时间</th>
+                <th align="center" width="40">是否锁定</th>
+                <th align="center" width="130">管理操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <foreach name="list" item="item">
+            <tr target="item_id" rel="{$item.id}">
+                <td>{$item.id}</td>
+                <td>{$item.loginname}</td>
+                <td>{$item.nickname}</td>
+                <td>{$item.realname}</td>
+                <td><eq name="item.rank" value="0">普通会员<else/>高级会员</eq></td>
+                <td>{$item.phone}</td>
+                <td>{$item.lastlogintime|date="Y-m-d H:i",###}</td>
+                <td>{$item.regtime|date="Y-m-d H:i",###}</td>
+                <td><eq name="item.status" value="1">是<else/>否</eq></td>
+                <td>
+                    <a style="color:#06F;" target="ajaxTodo" href="__URL__/setStatus/id/{$item.id}/status/<eq name="item.status" value="0">1<else/>0</eq>/navTabId/user" target="navTab"><eq name="item.status" value="0">锁定登录<else/>解锁登录</eq></a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a style="color:#06F;" href="__URL__/show/id/{$item.id}/navTabId/user" rel="showuser" width="750" height="450" target="dialog">查看详情</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a style="color:#06F;" href="__URL__/rank/id/{$item.id}/navTabId/user" rel="rankuser" width="750" height="450" target="dialog">设置等级</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a style="color:#06F;" target="ajaxTodo" title="确定要删除吗?" href="__URL__/del/id/{$item.id}/navTabId/user">删除</a>
+                </td>
+            </tr>
+            </foreach>
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>显示</span>
+            <select class="combox" name="numPerPage" onchange="navTabPageBreak({ldelim}numPerPage:this.value{rdelim})">
+                <option value="10" {if $numPerPage==10}selected{/if}>10</option>
+                <option value="15" {if $numPerPage==15}selected{/if}>15</option>
+                <option value="20" {if $numPerPage==20}selected{/if}>20</option>
+                <option value="25" {if $numPerPage==25}selected{/if}>25</option>
+                <option value="30" {if $numPerPage==30}selected{/if}>30</option>
+            </select>
+            <span>共{$totalCount}条</span>
+        </div>
+        <div class="pagination" targetType="navTab" totalCount="{$totalCount}" numPerPage="{$numPerPage}" pageNumShown="10" currentPage="{$currentPage}"></div>
+    </div>
+</div>

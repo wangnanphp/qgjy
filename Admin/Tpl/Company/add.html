@@ -1,0 +1,43 @@
+<h2 class="contentTitle">企业文化信息添加</h2>
+<div class="pageContent">
+    <!-- <form method="post" action="__URL__/doAdd" enctype="multipart/form-data"> -->
+    <form method="post" action="__URL__/doAdd/navTabId/company/callbackType/closeCurrent" enctype="multipart/form-data" class="pageForm required-validate" onsubmit="return iframeCallback(this,navTabAjaxDone);">
+        <div class="pageFormContent" layoutH="97">
+        <fieldset>
+            <legend>基本信息</legend>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">项目：</dt>
+                <dd><input size="20" class="required" name="title" type="text" /></dd>
+            </dl>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">封面图片：</dt>
+                <dd><input type="file" name="img" /></dd>
+            </dl>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">摘要：</dt>
+                <dd>
+                    <textarea name="summary" cols="60" rows="2" class="required"></textarea>
+                </dd>
+            </dl>
+        </fieldset>
+        <fieldset>
+            <legend>详细内容</legend>
+            <dl class="nowrap">
+                <dt style="width:20px;">&nbsp;</dt>
+                <dd>
+                    <textarea class="editor required" cols="150" rows="30" name="content" upImgUrl="__URL__/editImage" upImgExt="jpg,jpeg,gif,png" tools="Cut,Copy,Paste,Pastetext,|,Blocktag,Fontface,FontSize,Bold,Italic,Underline,Strikethrough,FontColor,BackColor,SelectAll,Removeformat,|,Align,List,Outdent,Indent,Link,Unlink,Img,Emot,Table,|,Source,Preview,Fullscreen,About"></textarea>
+                </dd>
+            </dl>
+        </fieldset>
+       <!--结束-->
+        </div>
+      <div class="formBar">
+            <ul style="text-align:left;float:left;padding-left:20px;">
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                <li>
+                    <div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+                </li>
+            </ul>
+        </div>
+    </form>
+</div>

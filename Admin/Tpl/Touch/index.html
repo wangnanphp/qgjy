@@ -1,0 +1,51 @@
+<h2 class="contentTitle">联系我们信息管理</h2>
+<div class="pageContent">
+    <!-- <form method="post" action="__URL__/edit/navTabId/touch/callbackType/closeCurre"> -->
+    <form method="post" action="__URL__/edit/navTabId/touch/callbackType/closeCurrent" class="pageForm required-validate" onsubmit="return iframeCallback(this,dialogAjaxDone);"><?php  //窗体组件采用这个 iframeCallback(this, navTabAjaxDone); ?>
+        <div class="pageFormContent" layoutH="97">
+        <fieldset>{$config.value}
+            <legend>公司联系信息</legend>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">联系电话：</dt>
+                <dd><input value="{$config.phone}" size="20" class="phone" name="phone" type="text" /></dd>
+            </dl>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">邮编：</dt>
+                <dd><input value="{$config.post}" size="20" class="digits" name="post" type="text" /></dd>
+            </dl>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">QQ号码：</dt>
+                <dd><input value="{$config.qq}" size="20" class="digits" name="qq" type="text" /></dd>
+            </dl>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">QQ群号码：</dt>
+                <dd><input value="{$config.qqg}" size="20" class="digits" name="qqg" type="text" /></dd>
+            </dl>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">公司地址：</dt>
+                <dd><input value="{$config.addr}" size="60" name="addr" type="text" /></dd>
+            </dl>
+        </fieldset>
+        <fieldset>
+            <legend>网址基本信息</legend>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">网址：</dt>
+                <dd><input value="{$config.url}" size="30" class="url" name="url" type="text" /></dd>
+            </dl>
+            <dl class="nowrap">
+                <dt style="text-align:right; padding-right:15px;">ICP备案号：</dt>
+                <dd><input value="{$config.icp}" size="30" name="icp" type="text" /></dd>
+            </dl>
+        </fieldset>
+       <!--结束-->
+        </div>
+      <div class="formBar">
+            <ul style="text-align:left;float:left;padding-left:20px;">
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                <li>
+                    <div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+                </li>
+            </ul>
+        </div>
+    </form>
+</div>
